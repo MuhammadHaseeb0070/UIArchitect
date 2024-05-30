@@ -1,0 +1,215 @@
+.navbar {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding: 10px 80px;
+    justify-content: space-between;
+    background: none;
+    color: var(--dark-color);
+    z-index: 10;
+}
+
+.navbar :first-child {
+    width: 100px;
+}
+
+.navList {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navList>li {
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+/* .navList>li:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+} */
+
+.navList>li>a {
+    position: relative;
+    color: var(--dark-color);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.navList>li>a::before {
+    content: '';
+    width: 0%;
+    height: 100%;
+    /* background-color: rgba(55, 55, 55, 0.222); */
+    background-color: var(--dark-color);
+    opacity: 0.2;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out 0.3s;
+}
+
+.navList>li>a:hover::before {
+    width: 100%;
+}
+
+.navList>li>a::after {
+    content: '';
+    width: 10%;
+    height: 0px;
+    background-color: var(--dark-color);
+    opacity: 0.2;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: height 0.3s ease-in-out, background-color 0.2s ease-in-out 0.3s;
+}
+
+.navList>li>a:hover::after {
+    height: 100%;
+
+}
+
+.navList>li>a:hover::after {
+    background-color: rgba(55, 55, 55, 0);
+
+}
+
+.navList>li>a:hover {
+    transform: scale(1.1);
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.482);
+}
+
+.navList {
+    display: flex;
+}
+
+.menuLogo {
+    display: none;
+    width: 40px;
+}
+
+.themeContainer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid rgb(110, 110, 110);
+    border-radius: 10px;
+}
+
+.themeContainer>p {
+    font-size: 14px;
+    color: var(--dark-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.themeButton {
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    background-color: var(--dark-color);
+    width: 40px;
+    height: 20px;
+    appearance: none;
+    border-radius: 20px;
+    z-index: 1;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.401);
+}
+
+.themeButton::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    left: 2px;
+    top: 50%;
+    transform: translate(0%, -50%);
+    width: 16px;
+    height: 16px;
+    background-color: var(--light-color);
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
+}
+
+.themeButton:checked::before {
+    background-color: aqua;
+    left: 22px;
+}
+
+.themeButton:checked {
+    background-color: rgba(0, 255, 255, 0.525);
+
+}
+
+.link {
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    color: var(--dark-color);
+}
+
+.link:hover {
+    transform: scale(1.1);
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.971);
+}
+
+@media only screen and (max-width:650px) {
+  
+
+    .navbar :first-child {
+        width: 70px;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+    }
+
+
+    .navList {
+        height: auto;
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(0%, -100%);
+        opacity: 0;
+        background-color: rgba(191, 191, 191, 0.453);
+        backdrop-filter: blur(25px);
+        padding: 0px;
+        border-radius: 5px;
+        z-index: 7;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .navList>li {
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px auto;
+    }
+
+    .active {
+        transform: translate(0%, 10vh);
+        opacity: 1;
+    }
+
+    .menuLogo {
+        display: flex;
+        width: 40px;
+    }
+
+}
